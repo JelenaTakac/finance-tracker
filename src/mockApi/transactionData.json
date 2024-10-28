@@ -1,0 +1,18 @@
+[
+    {
+        "id": 1,
+        "description": "Salary",
+        "amount": 5000,
+        "type": "income",
+        "category": "Job",
+        "date": "2024-06-01"
+    },
+    {
+        "id": 2,
+        "description": "Groceries",
+        "amount": -150,
+        "type": "expense",
+        "category": "Food",
+        "date": "2024-06-02"
+    }
+]
