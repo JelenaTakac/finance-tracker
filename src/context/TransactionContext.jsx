@@ -1,12 +1,10 @@
 import { createContext, useReducer} from "react";
-import { transactionReducer } from "../reducer/transactionReducer";
-import transactionData from "../mockApi/transactionData.json";
-
+import { transactionReducer, loadTransactionsFromLocalStorage } from "../reducer/transactionReducer";
 
 export const TransactionContext = createContext();
 
 const TransactionContextProvider = ({children}) => {
-    const [transactionState, transactionDispatch] = useReducer(transactionReducer, transactionData);
+    const [transactionState, transactionDispatch] = useReducer(transactionReducer, loadTransactionsFromLocalStorage());
 
     return (
         <TransactionContext.Provider value={{ transactionState, transactionDispatch }}>
