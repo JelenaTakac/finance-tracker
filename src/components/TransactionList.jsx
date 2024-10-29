@@ -2,8 +2,11 @@ import { useContext} from 'react';
 import { TransactionContext } from '../context/TransactionContext';
 
 const TransactionList = () => {
-    const { transactionState } = useContext(TransactionContext);
+    const { transactionState, transactionDispatch } = useContext(TransactionContext);
 
+    const handleDeleteTransaction = (id) => {
+        transactionDispatch({ type: 'DELETE_TRANSACTION', payload: id });
+    }
 
     return (
         <div>
@@ -17,7 +20,7 @@ const TransactionList = () => {
                     <div className='text-xl text-primary'>{transaction.amount}$</div>
                     <div className='text-xl text-primary'>{transaction.type}</div>
                     <button className='text-primary hover:text-secondary'>Edit</button>
-                    <button className='text-primary hover:text-red-500'>Delete</button>
+                    <button onClick={() => handleDeleteTransaction(transaction.id)} className='text-primary hover:text-red-500'>Delete</button>
                 </div>
             ))}
         </div>
