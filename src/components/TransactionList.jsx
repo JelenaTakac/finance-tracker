@@ -8,12 +8,16 @@ const TransactionList = () => {
     return (
         <div>
             {transactionState.map(transaction => (
-                <div key={transaction.id} className='w-32 border bg-accent rounded-lg shadow-md'>
-                    <h3 className='text-xl'>{transaction.amount}$</h3>
-                    <h4>{transaction.type}</h4>
-                    <h4>{transaction.category}</h4>
-                    <div>{transaction.description}</div>
-                    <div>{transaction.date}</div>
+                <div key={transaction.id} className='flex p-4 items-center justify-between gap-4 border bg-light rounded-lg shadow-md'>
+                    <div className='text-secondary italic'>{transaction.date}</div>
+                    <div>
+                        <div className='text-primary'>{transaction.description}</div>
+                        <div className='text-accent italic'>{transaction.category}</div>
+                    </div>
+                    <div className='text-xl text-primary'>{transaction.amount}$</div>
+                    <div className='text-xl text-primary'>{transaction.type}</div>
+                    <button className='text-primary hover:text-secondary'>Edit</button>
+                    <button className='text-primary hover:text-red-500'>Delete</button>
                 </div>
             ))}
         </div>
