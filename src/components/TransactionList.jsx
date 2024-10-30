@@ -10,7 +10,7 @@ const TransactionList = () => {
 
     return (
         <div>
-            {transactionState.map(transaction => (
+            {transactionState.filteredTransactions.map(transaction => (
                 <div key={transaction.id} className='flex p-4 items-center justify-between gap-4 border bg-light rounded-lg shadow-md'>
                     <div className='text-secondary italic'>{transaction.date}</div>
                     <div>

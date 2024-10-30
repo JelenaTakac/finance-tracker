@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Routes, Link, NavLink } from 'react-rou
 import './App.css'
 import Home from './views/Home';
 import TransactionForm from './components/TransactionForm';
-import TransactionList from './components/TransactionList';
+import Transactions from './views/Transactions';
 
 function App() {
 
@@ -19,7 +19,7 @@ function App() {
 
         <Routes>
             <Route path='/' element={<Home />} />
-              <Route path='/transactions' element={<TransactionList />} />
+              <Route path='/transactions' element={<Transactions />} />
             <Route path='/transactionForm' element={<TransactionForm />} />
         </Routes>
     </Router>

@@ -3,8 +3,13 @@ import { transactionReducer, loadTransactionsFromLocalStorage } from "../reducer
 
 export const TransactionContext = createContext();
 
+const initialState = {
+    transactions: loadTransactionsFromLocalStorage(),
+    filteredTransactions: loadTransactionsFromLocalStorage()
+};
+
 const TransactionContextProvider = ({children}) => {
-    const [transactionState, transactionDispatch] = useReducer(transactionReducer, loadTransactionsFromLocalStorage());
+    const [transactionState, transactionDispatch] = useReducer(transactionReducer, initialState);
 
     return (
         <TransactionContext.Provider value={{ transactionState, transactionDispatch }}>
