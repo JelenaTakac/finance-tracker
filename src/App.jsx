@@ -5,20 +5,13 @@ import Home from './views/Home';
 import TransactionForm from './components/TransactionForm';
 import Transactions from './views/Transactions';
 import TransactionDetail from './views/TransactionDetail';
+import Navbar from './components/Navbar';
 
 function App() {
 
   return (
     <Router>
-
-          <nav>
-            <ul className='flex justify-end space-x-4 py-4'>
-                  <li><NavLink to='/' className='text-primary hover:text-secondary'>Home</NavLink></li>
-                  <li><NavLink to='/transactions' className='text-primary hover:text-secondary'>Transactions</NavLink></li>
-                  <li><NavLink to='/transactionForm' className='text-primary hover:text-secondary'>New Transaction</NavLink></li>
-            </ul>
-        </nav>
-
+        <Navbar />
         <Routes>
             <Route path='/' element={<Home />} />
                 <Route path='/transactions' element={<Transactions />} />
