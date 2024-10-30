@@ -4,6 +4,7 @@ import './App.css'
 import Home from './views/Home';
 import TransactionForm from './components/TransactionForm';
 import Transactions from './views/Transactions';
+import TransactionDetail from './views/TransactionDetail';
 
 function App() {
 
@@ -19,8 +20,9 @@ function App() {
 
         <Routes>
             <Route path='/' element={<Home />} />
-              <Route path='/transactions' element={<Transactions />} />
-            <Route path='/transactionForm' element={<TransactionForm />} />
+                <Route path='/transactions' element={<Transactions />} />
+                <Route path='/transactionForm' element={<TransactionForm />} />
+                <Route path='/transactions/:transactionId' element={<TransactionDetail />} />
         </Routes>
     </Router>
   )
