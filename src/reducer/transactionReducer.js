@@ -34,8 +34,18 @@ export const transactionReducer = (state, action) => {
             };
 
         case 'FILTER_BY_CATEGORY' :
-            const filteredTransactions = state.transactions.filter(transaction => action.payload.length === 0 || action.payload.includes(transaction.category));
-            return {...state, filteredTransactions};
+            const filteredTransactionsByCategory = state.transactions.filter(transaction => action.payload.length === 0 || action.payload.includes(transaction.category));
+            return {...state, filteredTransactions: filteredTransactionsByCategory};
+
+        case 'FILTER_BY_TIME_PERIOD' :
+            const { startDate, endDate } = action.payload;
+            const filteredTransactionsByTimePeriod = state.transactions.filter(transaction => {
+                const transactionDate = new Date(transaction.date);
+                const isAfterStartDate = startDate ? transactionDate >= new Date(startDate) : true;
+                const isBeforeEndDate = endDate ? transactionDate <= new Date(endDate) : true;
+                return isAfterStartDate && isBeforeEndDate;
+            });
+            return {...state, filteredTransactions: filteredTransactionsByTimePeriod};
 
         default: 
             return state;
