@@ -17,7 +17,9 @@ const TransactionList = () => {
                         <div className='text-primary'>{transaction.description}</div>
                         <div className='text-accent italic'>{transaction.category}</div>
                     </div>
-                    <div className='text-xl text-primary'>{transaction.amount}$</div>
+                    <div className='text-xl text-primary'>
+                        {transaction.type === 'expense' ? '-' : ''} {transaction.amount}$
+                    </div>
                     <div className='text-xl text-primary'>{transaction.type}</div>
                     <button className='text-primary hover:text-secondary'>Edit</button>
                     <button onClick={() => handleDeleteTransaction(transaction.id)} className='text-primary hover:text-red-500'>Delete</button>

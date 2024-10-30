@@ -10,7 +10,7 @@
     {
         "id": 2,
         "description": "Groceries",
-        "amount": -150,
+        "amount": 150,
         "type": "expense",
         "category": "Food",
         "date": "2024-06-02"

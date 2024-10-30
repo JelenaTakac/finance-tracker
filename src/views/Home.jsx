@@ -1,7 +1,7 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import intro from '../assets/intro.png'
-import TransactionList from '../components/TransactionList'
+import Summary from '../components/Summary'
 
 const Home = () => {
     const navigate = useNavigate();
@@ -11,9 +11,8 @@ const Home = () => {
             <img src={intro} alt="Finance Traker Image" />
         </div>
         <div>
-            <TransactionList />
-
-              <button onClick={() => navigate('/transactionForm')}>Add New Transaction</button>
+            <Summary />
+            <button onClick={() => navigate('/transactionForm')} className='p-4 bg-primary hover:bg-secondary text-light rounded-md'>Add New Transaction</button>
         </div>
     </div>
   )
