@@ -15,6 +15,7 @@ function App() {
             <ul className='flex justify-end space-x-4 py-4'>
                   <li><NavLink to='/' className='text-primary hover:text-secondary'>Home</NavLink></li>
                   <li><NavLink to='/transactions' className='text-primary hover:text-secondary'>Transactions</NavLink></li>
+                  <li><NavLink to='/transactionForm' className='text-primary hover:text-secondary'>New Transaction</NavLink></li>
             </ul>
         </nav>
 
