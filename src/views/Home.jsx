@@ -1,12 +1,12 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import intro from '../assets/intro.png'
-import Summary from '../components/Summary'
+import Summary from '../components/TransactionsSummary'
 
 const Home = () => {
     const navigate = useNavigate();
   return (
-    <div className='grid grid-cols-2'>
+    <div className='grid md:grid-cols-2'>
         <div>
             <img src={intro} alt="Finance Traker Image" />
         </div>

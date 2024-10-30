@@ -11,6 +11,8 @@ export default {
         'secondary': '#0074b7',
         'accent': '#60a3d9',
         'light': '#bfd7ed',
+        'my-purple': '#5222D0',
+        'my-orange': '#EC615B',
         },
     },
   },
