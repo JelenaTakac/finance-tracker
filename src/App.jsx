@@ -22,6 +22,7 @@ function App() {
             <Route path='/' element={<Home />} />
                 <Route path='/transactions' element={<Transactions />} />
                 <Route path='/transactionForm' element={<TransactionForm />} />
+                <Route path='/transactionForm/:transactionId' element={<TransactionForm />} />
                 <Route path='/transactions/:transactionId' element={<TransactionDetail />} />
         </Routes>
     </Router>

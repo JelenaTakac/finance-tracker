@@ -1,9 +1,10 @@
 import { useContext} from 'react';
 import { TransactionContext } from '../context/TransactionContext';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const TransactionList = () => {
     const { transactionState, transactionDispatch } = useContext(TransactionContext);
+    const navigate = useNavigate();
 
     const handleDeleteTransaction = (id) => {
         transactionDispatch({ type: 'DELETE_TRANSACTION', payload: id });
@@ -24,7 +25,7 @@ const TransactionList = () => {
                         </div>
                         <div className='text-xl text-primary'>{transaction.type}</div>
                     </Link>
-                    <button className='text-primary hover:text-secondary'>Edit</button>
+                    <button onClick={() => navigate(`/transactionForm/${transaction.id}`)} className='text-primary hover:text-secondary'>Update</button>
                     <button onClick={() => handleDeleteTransaction(transaction.id)} className='text-primary hover:text-red-500'>Delete</button>
                 </div>
             ))}

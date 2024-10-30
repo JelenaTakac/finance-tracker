@@ -1,37 +1,57 @@
-import { useContext, useState } from 'react';
+import { useContext, useState, useEffect } from 'react';
 import { TransactionContext } from '../context/TransactionContext';
+import { useNavigate, useParams } from 'react-router-dom';
 
 const TransactionForm = () => {
-    const [amount, setAmount] = useState('');
-    const [type, setType] = useState('income');
-    const [category, setCategory] = useState('Job');
-    const [description, setDescription] = useState('');
-    const [date, setDate] = useState('');
+    const [transactionInfo, setTransactionInfo] = useState({
+        description: '',
+        amount: '',
+        type: 'income',
+        category: 'Job',
+        date: '',
+    })
 
-    const { transactionDispatch } = useContext(TransactionContext);
+    const { transactionState, transactionDispatch } = useContext(TransactionContext);
+    const navigate = useNavigate();
+    const { transactionId } = useParams();
+
+    useEffect(() => {
+        if(transactionId) {
+            const transactionToUpdate = transactionState.transactions.find(transaction => transaction.id === parseInt(transactionId));
+            transactionToUpdate && setTransactionInfo(transactionToUpdate);
+        }
+    }, [transactionId, transactionState.transactions]);
+
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        setTransactionInfo((prevTransaction) => ({
+            ...prevTransaction,
+            [name]: value,
+        }))
+    }
 
     const handleSubmit = (e) => {
         e.preventDefault();
         const newTransaction = {
-            id: Date.now(),
-            amount: parseFloat(amount),
-            type,
-            category,
-            description,
-            date
+            ...transactionInfo,
+            id: transactionId ? parseInt(transactionId) : Date.now(),
+            amount: parseFloat(transactionInfo.amount),
         };
 
-        transactionDispatch({ type: 'ADD_TRANSACTION', payload: newTransaction });
+        transactionDispatch({ type: transactionId ? 'UPDATE_TRANSACTION' : 'ADD_TRANSACTION', payload: newTransaction });
 
         resetForm();
+        navigate('/transactions');
     };
 
     const resetForm = () => {
-        setAmount('');
-        setType('income');
-        setCategory('Job');
-        setDescription('');
-        setDate('');
+        setTransactionInfo({
+            description: '',
+            amount: '',
+            type: 'income',
+            category: 'Job',
+            date: '',
+        })
     };
 
     return (
@@ -43,8 +63,9 @@ const TransactionForm = () => {
                 <input
                     type="number"
                     id="amount"
-                    value={amount}
-                    onChange={(e) => setAmount(e.target.value)}
+                    name='amount'
+                    value={transactionInfo.amount}
+                    onChange={handleInputChange}
                     className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
                     required
                 />
@@ -56,9 +77,10 @@ const TransactionForm = () => {
                     <label className="mr-4">
                         <input
                             type="radio"
+                            name='type'
                             value="income"
-                            checked={type === 'income'}
-                            onChange={() => setType('income')}
+                            checked={transactionInfo.type === 'income'}
+                            onChange={handleInputChange}
                             className="mr-1"
                         />
                         Income
@@ -66,9 +88,10 @@ const TransactionForm = () => {
                     <label>
                         <input
                             type="radio"
+                            name='type'
                             value="expense"
-                            checked={type === 'expense'}
-                            onChange={() => setType('expense')}
+                            checked={transactionInfo.type === 'expense'}
+                            onChange={handleInputChange}
                             className="mr-1"
                         />
                         Expense
@@ -82,8 +105,9 @@ const TransactionForm = () => {
                 </label>
                 <select
                     id="category"
-                    value={category}
-                    onChange={(e) => setCategory(e.target.value)}
+                    name='category'
+                    value={transactionInfo.category}
+                    onChange={handleInputChange}
                     className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
                     required
                 >
@@ -102,8 +126,9 @@ const TransactionForm = () => {
                 <input
                     type="text"
                     id="description"
-                    value={description}
-                    onChange={(e) => setDescription(e.target.value)}
+                    name='description'
+                    value={transactionInfo.description}
+                    onChange={handleInputChange}
                     className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
                     required
                 />
@@ -116,8 +141,9 @@ const TransactionForm = () => {
                 <input
                     type="date"
                     id="date"
-                    value={date}
-                    onChange={(e) => setDate(e.target.value)}
+                    name='date'
+                    value={transactionInfo.date}
+                    onChange={handleInputChange}
                     className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
                     required
                 />
@@ -127,7 +153,7 @@ const TransactionForm = () => {
                 type="submit"
                 className="w-full bg-primary text-white py-2 px-4 rounded-lg hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50"
             >
-                Add Transaction
+                {transactionId ? 'Update Transaction' : 'Add Transaction'}
             </button>
         </form>
     );

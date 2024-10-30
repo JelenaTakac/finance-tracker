@@ -15,6 +15,15 @@ export const transactionReducer = (state, action) => {
                 filteredTransactions: updatedTransactionState,
             };
 
+        case 'UPDATE_TRANSACTION' :
+            updatedTransactionState = state.transactions.map(transaction => transaction.id === action.payload.id ? action.payload : transaction);
+            localStorage.setItem("transactions", JSON.stringify(updatedTransactionState));
+            return {
+                ...state, 
+                transactions: updatedTransactionState,
+                filteredTransactions: updatedTransactionState,
+            };
+
         case 'DELETE_TRANSACTION' :
             updatedTransactionState = state.transactions.filter(transaction => transaction.id !== action.payload);
             localStorage.setItem("transactions", JSON.stringify(updatedTransactionState));
