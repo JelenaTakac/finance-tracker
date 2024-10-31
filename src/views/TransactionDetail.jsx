@@ -1,4 +1,3 @@
-import React from 'react'
 import jobImage from '../assets/transactionDetail/job.png'
 import billsImage from '../assets/transactionDetail/bills.png'
 import foodImage from '../assets/transactionDetail/food.png'
@@ -30,16 +29,16 @@ const TransactionDetail = () => {
     const renderTransactionDetailImage = categoryImages.find(img => img.category === transactionDetail.category);
 
     return (
-        <div className='grid grid-cols-2'>
+        <div className='grid space-y-4 md:grid-cols-2 p-4 items-center'>
             <div>
                 <img src={renderTransactionDetailImage.image} alt="" />
             </div>
-            <div className="p-4 border rounded-lg bg-white shadow-md">
-                <h2 className="text-xl font-bold mb-4">Transaction Detail</h2>
-                <p><strong>Description:</strong> {transactionDetail.description}</p>
-                <p><strong>Amount:</strong> {transactionDetail.amount}$</p>
-                <p><strong>Category:</strong> {transactionDetail.category}</p>
-                <p><strong>Date:</strong> {transactionDetail.date}</p>
+            <div className='space-y-4'>
+                <h2 className="text-2xl text-primary font-bold">Transaction Category: {transactionDetail.category}</h2>
+                <h3 className='text-primary text-xl'><strong>Description:</strong> {transactionDetail.description}</h3>
+                <h3 className='text-primary text-xl'><strong>Amount:</strong> {transactionDetail.amount}$</h3>
+                <h3 className='text-primary text-xl'><strong>Category:</strong> {transactionDetail.type}</h3>
+                <h3 className='text-primary text-xl'><strong>Date:</strong> {transactionDetail.date}</h3>
             </div>
         </div>
     )

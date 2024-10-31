@@ -55,7 +55,7 @@ const TransactionForm = () => {
     };
 
     return (
-        <form onSubmit={handleSubmit} className="p-4 bg-white rounded-lg shadow-md">
+        <form onSubmit={handleSubmit} className="p-4 bg-white rounded-lg shadow-md md:w-1/2 mx-6 md:mx-auto mt-12">
             <div className="mb-4">
                 <label className="block text-gray-700 font-bold mb-2" htmlFor="amount">
                     Amount
