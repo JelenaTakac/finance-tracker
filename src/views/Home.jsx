@@ -10,7 +10,7 @@ const Home = () => {
         <div>
             <img src={intro} alt="Finance Traker Image" />
         </div>
-        <div>
+        <div className='space-y-8'>
             <Summary />
             <button onClick={() => navigate('/transactionForm')} className='p-4 bg-primary hover:bg-secondary text-light rounded-md'>Add New Transaction</button>
         </div>

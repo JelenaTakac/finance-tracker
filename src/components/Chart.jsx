@@ -13,11 +13,11 @@ const Chart = ({ totalIncome, totalExpenses }) => {
             <Pie
                 data={data}
                 cx={200}
-                cy={100}
+                cy={150}
                 startAngle={180}
                 endAngle={0}
-                innerRadius={60}
-                outerRadius={80}
+                innerRadius={80}
+                outerRadius={100}
                 cornerRadius={5}
                 fill="#8884d8"
                 paddingAngle={5}
