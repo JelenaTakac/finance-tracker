@@ -7,7 +7,7 @@ const TransactionForm = () => {
         description: '',
         amount: '',
         type: 'income',
-        category: 'Job',
+        category: '',
         date: '',
     })
 
@@ -49,7 +49,7 @@ const TransactionForm = () => {
             description: '',
             amount: '',
             type: 'income',
-            category: 'Job',
+            category: '',
             date: '',
         })
     };
@@ -66,6 +66,12 @@ const TransactionForm = () => {
                     name='amount'
                     value={transactionInfo.amount}
                     onChange={handleInputChange}
+                    min={0}
+                    onKeyDown={(e) => {
+                        if (e.key === '-') {
+                            e.preventDefault();
+                        }
+                    }}
                     className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
                     required
                 />
@@ -111,6 +117,7 @@ const TransactionForm = () => {
                     className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
                     required
                 >
+                    <option value="" disabled>Select category</option>
                     <option value="Job">Job</option>
                     <option value="Food">Food</option>
                     <option value="Transport">Transport</option>
