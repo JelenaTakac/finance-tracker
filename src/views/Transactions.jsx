@@ -5,8 +5,8 @@ import FilterByTimePeriod from '../components/FilterByTimePeriod';
 
 const Transactions = () => {
   return (
-    <div>
-        <div className='flex justify-between mt-12'>
+    <div className='px-8'>
+        <div className='md:flex md:justify-between mt-12'>
             <FilterByCategory />
             <FilterByTimePeriod />
         </div>

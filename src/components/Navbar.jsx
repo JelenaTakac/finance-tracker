@@ -30,7 +30,7 @@ const Navbar = () => {
             </div>
             {/* Mobile Menu */}
             {isMenuOpen && (
-                <div className="absolute top-12 left-0 right-0 md:hidden">
+                <div className="absolute top-12 left-0 right-0 md:hidden z-10">
                     <ul className="bg-white shadow-lg flex flex-col items-center py-2 space-y-4 border-t border-light">
                         <li><NavLink to="/" className="text-primary hover:text-secondary" onClick={toggleMenu}>Home</NavLink></li>
                         <li><NavLink to="/transactions" className="text-primary hover:text-secondary" onClick={toggleMenu}>Transactions</NavLink></li>

@@ -13,7 +13,7 @@ const FilterByTimePeriod = () => {
 
 
     return (
-        <div className="flex space-x-4 mb-4">
+        <div className="space-y-2 md:flex md:space-x-4 mb-4">
             <div className='flex items-center space-x-2'>
                 <label className="text-gray-700 font-bold" htmlFor="start-date">Start Date</label>
                 <input
