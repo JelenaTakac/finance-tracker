@@ -9,15 +9,15 @@ const Chart = ({ totalIncome, totalExpenses }) => {
     const COLORS = ['#5222D0', '#EC615B'];
 
     return (
-        <PieChart width={400} height={200}>
+        <PieChart width={200} height={200} className='mx-auto'>
             <Pie
                 data={data}
-                cx={200}
+                cx={100}
                 cy={150}
                 startAngle={180}
                 endAngle={0}
-                innerRadius={80}
-                outerRadius={100}
+                innerRadius={70}
+                outerRadius={90}
                 cornerRadius={5}
                 fill="#8884d8"
                 paddingAngle={5}

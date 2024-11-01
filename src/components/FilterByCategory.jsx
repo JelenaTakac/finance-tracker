@@ -47,7 +47,7 @@ const FilterByCategory = () => {
             <button
                 ref={buttonRef}
                 onClick={toggleDropdown}
-                className="flex gap-4 px-4 py-2 text-primary border-bg-primary hover:bg-primary  hover:border-bg-primary hover:text-white rounded-lg shadow-md"
+                className="flex gap-4 px-4 py-2 text-primary border border-primary hover:bg-primary  hover:border-bg-primary hover:text-white rounded-lg"
             >
                 Filter By Category
                 <Filter />

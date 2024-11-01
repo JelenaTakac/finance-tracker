@@ -34,10 +34,10 @@ const TransactionDetail = () => {
                 <img src={renderTransactionDetailImage.image} alt="" />
             </div>
             <div className='space-y-4'>
-                <h2 className="text-2xl text-primary font-bold">Transaction Category: {transactionDetail.category}</h2>
+                <h2 className="text-2xl text-primary font-bold">Transaction Type: {transactionDetail.type}</h2>
                 <h3 className='text-primary text-xl'><strong>Description:</strong> {transactionDetail.description}</h3>
                 <h3 className='text-primary text-xl'><strong>Amount:</strong> {transactionDetail.amount}$</h3>
-                <h3 className='text-primary text-xl'><strong>Category:</strong> {transactionDetail.type}</h3>
+                <h3 className='text-primary text-xl'><strong>Category:</strong> {transactionDetail.category}</h3>
                 <h3 className='text-primary text-xl'><strong>Date:</strong> {transactionDetail.date}</h3>
             </div>
         </div>

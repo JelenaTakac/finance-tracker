@@ -158,7 +158,7 @@ const TransactionForm = () => {
 
             <button
                 type="submit"
-                className="w-full bg-primary text-white py-2 px-4 rounded-lg hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50"
+                className="w-full text-primary border border-primary hover:text-white hover:bg-primary py-2 px-4 rounded-lg hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50 transition-colors duration-300"
             >
                 {transactionId ? 'Update Transaction' : 'Add Transaction'}
             </button>

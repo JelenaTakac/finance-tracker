@@ -12,7 +12,7 @@ const Summary = () => {
     const balance = totalIncome - totalExpenses;
 
     return (
-        <div className='grid justify-center'>
+        <div className='grid'>
             <Chart totalIncome={totalIncome} totalExpenses={totalExpenses} />
             <div className="p-6 rounded-lg shadow-md space-y-2">
                 <div className="text-lg sm:text-xl text-my-purple">

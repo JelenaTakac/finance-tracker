@@ -7,18 +7,22 @@ const Navbar = () => {
 
     const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
+    const linkClasses = ({ isActive }) =>
+        `h-full flex items-center px-3 transition-colors duration-300 ${isActive ? "bg-primary text-white" : "text-primary hover:bg-primary hover:text-white"
+        }`;
+
     return (
-        <nav className="bg-white shadow-md">
+        <nav className="bg-white border-b border-light">
             <div className="px-4 lg:px-8">
                 <div className="flex justify-between items-center h-12 md:h-16">
                     <div className="shrink-0">
                         <NavLink to="/" className="text-2xl text-primary"><TrendingUp /></NavLink>
                     </div>
                     {/* Desktop Menu */}
-                    <div className="hidden md:flex items-center space-x-4">
-                        <NavLink to="/" className="text-primary hover:text-secondary">Home</NavLink>
-                        <NavLink to="/transactions" className="text-primary hover:text-secondary">Transactions</NavLink>
-                        <NavLink to="/transactionForm" className="text-primary hover:text-secondary">New Transaction</NavLink>
+                    <div className="hidden md:flex items-center h-full">
+                        <NavLink to="/" className={linkClasses}>Home</NavLink>
+                        <NavLink to="/transactions" className={linkClasses}>Transactions</NavLink>
+                        <NavLink to="/transactionForm" className={linkClasses}>New Transaction</NavLink>
                     </div>
                     {/* Mobile Menu Button */}
                     <div className="md:hidden flex items-center">

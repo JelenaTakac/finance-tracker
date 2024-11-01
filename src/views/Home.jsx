@@ -12,7 +12,7 @@ const Home = () => {
         </div>
         <div className='space-y-8 text-center'>
             <Summary />
-            <button onClick={() => navigate('/transactionForm')} className='p-4 bg-primary hover:bg-secondary text-light rounded-md'>Add New Transaction</button>
+            <button onClick={() => navigate('/transactionForm')} className='p-4 text-primary border border-primary hover:bg-primary hover:text-white rounded-md font-semibold'>Add New Transaction</button>
         </div>
     </div>
   )
