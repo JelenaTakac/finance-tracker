@@ -10,9 +10,13 @@ const TransactionList = () => {
         transactionDispatch({ type: 'DELETE_TRANSACTION', payload: id });
     }
 
+    const sortTransactions = transactionState.filteredTransactions.sort((a, b) => new Date(b.date) - new Date(a.date));
+    console.log(sortTransactions);
+    
+
     return (
         <div>
-            {transactionState.filteredTransactions.map(transaction => (
+            {sortTransactions.map(transaction => (
                 <div key={transaction.id} className='grid md:grid-cols-6 py-2 items-center gap-2'>
                     <Link to={`/transactions/${transaction.id}`} className='md:col-span-5 flex p-4 items-center justify-between gap-4 border bg-transparent hover:bg-light rounded-lg shadow-md'>
                         <div className='text-secondary italic text-xs md:text-base'>{transaction.date}</div>
