@@ -1,24 +1,10 @@
-import { useContext, useState, useEffect, useRef } from 'react';
-import { TransactionContext } from '../context/TransactionContext';
+import { useState, useEffect, useRef } from 'react';
 import { Filter } from 'lucide-react';
 
-const FilterByCategory = () => {
-    const { transactionState, transactionDispatch } = useContext(TransactionContext);
-    const [selectedCategories, setSelectedCategories] = useState([]);
+const FilterByCategory = ({ onHandleCategoryChange, uniqueCategories, selectedCategories }) => {
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const dropdownRef = useRef(null); 
     const buttonRef = useRef(null);
-
-    const uniqueCategories = [...new Set(transactionState.transactions.map(transaction => transaction.category))];
-
-    const handleCategoryChange = (category) => {
-        const updatedCategories = selectedCategories.includes(category)
-            ? selectedCategories.filter(cat => cat !== category)
-            : [...selectedCategories, category];
-
-        setSelectedCategories(updatedCategories);
-        transactionDispatch({ type: 'FILTER_BY_CATEGORY', payload: updatedCategories });
-    };
 
     const toggleDropdown = () => {
         setIsDropdownOpen(prevState => !prevState);
@@ -62,7 +48,7 @@ const FilterByCategory = () => {
                                 <input
                                     type="checkbox"
                                     checked={selectedCategories.includes(category)}
-                                    onChange={() => handleCategoryChange(category)}
+                                    onChange={() => onHandleCategoryChange(category)}
                                     className="mr-2"
                                 />
                                 <span>{category}</span>

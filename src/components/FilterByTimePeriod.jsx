@@ -1,16 +1,18 @@
-import { useState, useEffect, useContext } from 'react'
-import { TransactionContext } from '../context/TransactionContext';
+import { useState } from 'react'
 
-const FilterByTimePeriod = () => {
-    const { transactionDispatch } = useContext(TransactionContext);
+const FilterByTimePeriod = ({ onHandleStartDate, onHandleEndDate }) => {
     const [startDate, setStartDate] = useState('');
     const [endDate, setEndDate] = useState('');
 
-    useEffect(() => {
-        transactionDispatch({ type: 'FILTER_BY_TIME_PERIOD', payload: { startDate, endDate } });
+    const handleStartDate = (selectedDate) => {
+        onHandleStartDate(selectedDate);
+        setStartDate(selectedDate);
+    }
 
-    }, [startDate, endDate, transactionDispatch])
-
+    const handleEndDate = (selectedDate) => {
+        onHandleEndDate(selectedDate);
+        setEndDate(selectedDate);
+    }
 
     return (
         <div className="space-y-2 md:flex md:space-x-4 mb-4">
@@ -20,7 +22,7 @@ const FilterByTimePeriod = () => {
                     type="date"
                     id="start-date"
                     value={startDate}
-                    onChange={(e) => setStartDate(e.target.value)}
+                    onChange={(e) => handleStartDate(e.target.value)}
                     className="px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
                 />
             </div>
@@ -30,7 +32,7 @@ const FilterByTimePeriod = () => {
                     type="date"
                     id="end-date"
                     value={endDate}
-                    onChange={(e) => setEndDate(e.target.value)}
+                    onChange={(e) => handleEndDate(e.target.value)}
                     className="px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
                 />
             </div>

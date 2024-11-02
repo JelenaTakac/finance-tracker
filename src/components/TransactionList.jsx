@@ -11,8 +11,6 @@ const TransactionList = () => {
     }
 
     const sortTransactions = transactionState.filteredTransactions.sort((a, b) => new Date(b.date) - new Date(a.date));
-    console.log(sortTransactions);
-    
 
     return (
         <div>
