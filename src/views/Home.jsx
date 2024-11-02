@@ -2,6 +2,7 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import intro from '../assets/intro.png'
 import Summary from '../components/TransactionsSummary'
+import RecentTransactions from '../components/RecentTransactions'
 
 const Home = () => {
     const navigate = useNavigate();
@@ -9,6 +10,7 @@ const Home = () => {
     <div className='grid md:grid-cols-2'>
         <div>
             <img src={intro} alt="Finance Traker Image" />
+            <RecentTransactions />
         </div>
         <div className='space-y-8 text-center'>
             <Summary />
