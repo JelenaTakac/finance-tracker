@@ -18,7 +18,8 @@ const TransactionForm = () => {
     useEffect(() => {
         if(transactionId) {
             const transactionToUpdate = transactionState.transactions.find(transaction => transaction.id === parseInt(transactionId));
-            transactionToUpdate && setTransactionInfo(transactionToUpdate);
+            const newTransactionInfo = transactionToUpdate?.type === 'expense' ? { ...transactionToUpdate, amount: (-1) * transactionToUpdate.amount } : transactionToUpdate
+            transactionToUpdate && setTransactionInfo(newTransactionInfo);
         }
     }, [transactionId, transactionState.transactions]);
 
@@ -35,7 +36,7 @@ const TransactionForm = () => {
         const newTransaction = {
             ...transactionInfo,
             id: transactionId ? parseInt(transactionId) : Date.now(),
-            amount: parseFloat(transactionInfo.amount),
+            amount: transactionInfo.type === 'expense' ? (-1) * parseFloat(transactionInfo.amount) : parseFloat(transactionInfo.amount)
         };
 
         transactionDispatch({ type: transactionId ? 'UPDATE_TRANSACTION' : 'ADD_TRANSACTION', payload: newTransaction });
@@ -62,6 +63,7 @@ const TransactionForm = () => {
                 </label>
                 <input
                     type="number"
+                    step="0.01"
                     id="amount"
                     name='amount'
                     value={transactionInfo.amount}
