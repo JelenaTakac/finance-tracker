@@ -1,6 +1,6 @@
 import { PieChart, Pie, Cell } from 'recharts';
 
-const Chart = ({ totalIncome, totalExpenses }) => {
+const SummaryChart = ({ totalIncome, totalExpenses }) => {
     const data = [
         { name: 'Income', value: totalIncome },
         { name: 'Expense', value: totalExpenses },
@@ -31,4 +31,4 @@ const Chart = ({ totalIncome, totalExpenses }) => {
     )
 }
 
-export default Chart
+export default SummaryChart
