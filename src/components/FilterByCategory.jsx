@@ -1,10 +1,12 @@
 import { useState, useEffect, useRef } from 'react';
 import { Filter } from 'lucide-react';
 
-const FilterByCategory = ({ onHandleCategoryChange, uniqueCategories, selectedCategories }) => {
+const FilterByCategory = ({ onHandleCategoryChange, selectedCategories }) => {
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const dropdownRef = useRef(null); 
     const buttonRef = useRef(null);
+
+    const categories = ['Job', 'Food', 'Transport', 'Shopping', 'Bills'];
 
     const toggleDropdown = () => {
         setIsDropdownOpen(prevState => !prevState);
@@ -43,7 +45,7 @@ const FilterByCategory = ({ onHandleCategoryChange, uniqueCategories, selectedCa
                 <div ref={dropdownRef} className="absolute mt-2 p-4 bg-light border rounded-lg shadow-md">
                     <h3 className="text-lg font-semibold mb-2">Select Categories</h3>
                     <div className="space-y-2">
-                        {uniqueCategories.map(category => (
+                        {categories.map(category => (
                             <label key={category} className="flex items-center cursor-pointer">
                                 <input
                                     type="checkbox"

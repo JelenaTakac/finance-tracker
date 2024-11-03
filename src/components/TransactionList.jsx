@@ -2,7 +2,7 @@ import { useContext} from 'react';
 import { TransactionContext } from '../context/TransactionContext';
 import { DELETE_TRANSACTION } from '../utils/actionTypes';
 import { Link, useNavigate } from 'react-router-dom';
-import dollarImage from '../assets/dollar.png';
+import dollarImage from '../assets/dollar.svg';
 import { FilePenLine, FileX2 } from 'lucide-react';
 import Swal from 'sweetalert2';
 
@@ -33,13 +33,15 @@ const TransactionList = () => {
         <div>
             {sortTransactions.map(transaction => (
                 <div key={transaction.id} className='grid md:grid-cols-6 py-2 items-center gap-2'>
-                    <Link to={`/transactions/${transaction.id}`} className='md:col-span-5 flex p-4 items-center justify-between gap-4 border bg-transparent hover:bg-light rounded-lg shadow-md'>
-                        <img src={dollarImage} alt="Dollar image" className='size-8 md:size-10'/>
-                        <div>
-                            <div className='text-primary font-semibold'>{transaction.description}</div>
-                            <div className='flex gap-2 items-center'>
-                                <div className='text-secondary italic text-xs md:text-base'>{transaction.date}</div>
-                                <div className='text-secondary italic text-xs md:text-base'>{transaction.category}</div>
+                    <Link to={`/transactions/${transaction.id}`} className='md:col-span-5 flex p-4 items-center justify-between gap-4 border bg-transparent hover:border-primary rounded-lg shadow-md'>
+                        <div className='flex gap-8 items-center'>
+                            <img src={dollarImage} alt="Dollar image" className='size-8 md:size-10'/>
+                            <div>
+                                <div className='text-primary font-semibold'>{transaction.description}</div>
+                                <div className='flex gap-2 items-center'>
+                                    <div className='text-secondary italic text-xs md:text-base'>{transaction.date}</div>
+                                    <div className='text-secondary italic text-xs md:text-base'>{transaction.category}</div>
+                                </div>
                             </div>
                         </div>
                         <div className='md:text-xl text-primary font-semibold'>{transaction.amount}$</div>

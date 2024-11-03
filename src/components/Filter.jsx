@@ -5,12 +5,10 @@ import FilterByCategory from './FilterByCategory'
 import FilterByTimePeriod from './FilterByTimePeriod'
 
 const Filter = () => {
-    const { transactionState, transactionDispatch } = useContext(TransactionContext);
+    const { transactionDispatch } = useContext(TransactionContext);
     const [selectedCategories, setSelectedCategories] = useState([]);
     const [startDate, setStartDate] = useState('');
     const [endDate, setEndDate] = useState('');
-
-    const uniqueCategories = [...new Set(transactionState.transactions.map(transaction => transaction.category))];
 
     const handleCategoryChange = (category) => {
         const updatedCategories = selectedCategories.includes(category)
@@ -36,7 +34,7 @@ const Filter = () => {
 
     return (
         <div className='md:flex md:justify-between mt-12'>
-            <FilterByCategory onHandleCategoryChange={handleCategoryChange} uniqueCategories={uniqueCategories} selectedCategories={selectedCategories} />
+            <FilterByCategory onHandleCategoryChange={handleCategoryChange} selectedCategories={selectedCategories} />
             <FilterByTimePeriod onHandleStartDate={handleStartDate} onHandleEndDate={handleEndDate} />
         </div>
     )

@@ -7,7 +7,7 @@ import RecentTransactions from '../components/RecentTransactions'
 const Home = () => {
     const navigate = useNavigate();
   return (
-    <div className='grid md:grid-cols-2'>
+    <div className='px-4 grid md:grid-cols-2'>
         <div>
             <img src={intro} alt="Finance Traker Image" />
         </div>
