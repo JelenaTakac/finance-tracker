@@ -16,8 +16,8 @@ const TransactionList = () => {
             text: "You won't be able to revert this!",
             icon: 'warning',
             showCancelButton: true,
-            confirmButtonColor: '#28a745',
-            cancelButtonColor: '#d33',
+            confirmButtonColor: '#5222D0',
+            cancelButtonColor: '#EC615B',
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {

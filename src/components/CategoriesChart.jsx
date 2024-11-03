@@ -2,7 +2,7 @@ import { useContext } from 'react'
 import { TransactionContext } from '../context/TransactionContext';
 import { PieChart, Pie, Cell } from 'recharts';
 
-const COLORS = ['#5222D0', '#003b73', '#0074b7', '#60a3d9', '#60a3d9'];
+const COLORS = ['#5222D0', '#003b73', '#0074b7', '#60a3d9', '#bfd7ed'];
 
 const RADIAN = Math.PI / 180;
 const renderCustomizedLabel = ({ cx, cy, midAngle, outerRadius, name, percent }) => {
@@ -36,7 +36,7 @@ const CategoriesChart = () => {
     const data = Object.entries(transactionCounts).map(([name, value]) => ({ name, value }));
 
     return (
-        <PieChart width={350} height={300} className='mx-auto'>
+        <PieChart width={360} height={300} className='mx-auto'>
             <Pie
                 data={data}
                 cx="50%"
@@ -45,7 +45,7 @@ const CategoriesChart = () => {
                 endAngle={0}
                 labelLine={false}
                 label={renderCustomizedLabel}
-                outerRadius={100}
+                outerRadius={90}
                 fill="#8884d8"
                 dataKey="value"
             >
