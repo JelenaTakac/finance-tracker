@@ -1,5 +1,4 @@
-import { useState } from 'react'
-import { BrowserRouter as Router, Route, Routes, Link, NavLink } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css'
 import Home from './views/Home';
 import TransactionForm from './components/TransactionForm';
