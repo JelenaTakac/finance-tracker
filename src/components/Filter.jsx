@@ -1,5 +1,6 @@
 import { useState, useEffect, useContext } from 'react'
 import { TransactionContext } from '../context/TransactionContext'
+import { FILTER_TRANSACTIONS } from '../utils/actionTypes'
 import FilterByCategory from './FilterByCategory'
 import FilterByTimePeriod from './FilterByTimePeriod'
 
@@ -28,7 +29,7 @@ const Filter = () => {
     }
 
     useEffect(() => {
-        transactionDispatch({ type: 'FILTER_TRANSACTIONS', payload: { startDate, endDate, selectedCategories } });
+        transactionDispatch({ type: FILTER_TRANSACTIONS, payload: { startDate, endDate, selectedCategories } });
 
     }, [startDate, endDate, selectedCategories, transactionDispatch])
 

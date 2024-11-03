@@ -1,5 +1,6 @@
 import { useContext} from 'react';
 import { TransactionContext } from '../context/TransactionContext';
+import { DELETE_TRANSACTION } from '../utils/actionTypes';
 import { Link, useNavigate } from 'react-router-dom';
 import dollarImage from '../assets/dollar.png';
 import { FilePenLine, FileX2 } from 'lucide-react';
@@ -20,7 +21,7 @@ const TransactionList = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                transactionDispatch({ type: 'DELETE_TRANSACTION', payload: id });
+                transactionDispatch({ type: DELETE_TRANSACTION, payload: id });
                 Swal.fire('Deleted!', 'The transaction has been deleted.', 'success');
             }
         });

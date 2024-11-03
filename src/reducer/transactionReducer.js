@@ -1,4 +1,5 @@
 import transactionData from "../mockApi/transactionData.json";
+import { ADD_TRANSACTION, UPDATE_TRANSACTION, DELETE_TRANSACTION, FILTER_TRANSACTIONS } from "../utils/actionTypes";
 
 export const loadTransactionsFromLocalStorage = () => {
     return JSON.parse(localStorage.getItem("transactions")) || transactionData;
@@ -6,7 +7,7 @@ export const loadTransactionsFromLocalStorage = () => {
 export const transactionReducer = (state, action) => {
     let updatedTransactionState;
     switch (action.type) {
-        case 'ADD_TRANSACTION' :
+        case ADD_TRANSACTION :
             updatedTransactionState = [...state.transactions, action.payload];
             localStorage.setItem("transactions", JSON.stringify(updatedTransactionState));
             return {
@@ -15,7 +16,7 @@ export const transactionReducer = (state, action) => {
                 filteredTransactions: updatedTransactionState,
             };
 
-        case 'UPDATE_TRANSACTION' :
+        case UPDATE_TRANSACTION :
             updatedTransactionState = state.transactions.map(transaction => transaction.id === action.payload.id ? action.payload : transaction);
             localStorage.setItem("transactions", JSON.stringify(updatedTransactionState));
             return {
@@ -24,7 +25,7 @@ export const transactionReducer = (state, action) => {
                 filteredTransactions: updatedTransactionState,
             };
 
-        case 'DELETE_TRANSACTION' :
+        case DELETE_TRANSACTION :
             updatedTransactionState = state.transactions.filter(transaction => transaction.id !== action.payload);
             localStorage.setItem("transactions", JSON.stringify(updatedTransactionState));
             return {
@@ -33,7 +34,7 @@ export const transactionReducer = (state, action) => {
                 filteredTransactions: updatedTransactionState,
             };
 
-        case 'FILTER_TRANSACTIONS' :
+        case FILTER_TRANSACTIONS :
             const { startDate, endDate, selectedCategories } = action.payload;
             const filterByCategory = (transaction) => {
                 return selectedCategories.length === 0 || selectedCategories.includes(transaction.category);

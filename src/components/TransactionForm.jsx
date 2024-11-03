@@ -1,5 +1,6 @@
 import { useContext, useState, useEffect } from 'react';
 import { TransactionContext } from '../context/TransactionContext';
+import { ADD_TRANSACTION, UPDATE_TRANSACTION } from '../utils/actionTypes';
 import { useNavigate, useParams } from 'react-router-dom';
 
 const TransactionForm = () => {
@@ -39,7 +40,7 @@ const TransactionForm = () => {
             amount: transactionInfo.type === 'expense' ? (-1) * parseFloat(transactionInfo.amount) : parseFloat(transactionInfo.amount)
         };
 
-        transactionDispatch({ type: transactionId ? 'UPDATE_TRANSACTION' : 'ADD_TRANSACTION', payload: newTransaction });
+        transactionDispatch({ type: transactionId ? UPDATE_TRANSACTION : ADD_TRANSACTION, payload: newTransaction });
 
         resetForm();
         navigate('/transactions');
