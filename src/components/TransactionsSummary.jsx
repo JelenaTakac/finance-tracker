@@ -9,11 +9,11 @@ const Summary = () => {
 
     const totalExpenses = transactionState.transactions.filter(transaction => transaction.type === 'expense').reduce((accumulator, transaction) => accumulator + transaction.amount, 0);
 
-    const balance = totalIncome - totalExpenses;
+    const balance = totalIncome - ((-1) * totalExpenses);
 
     return (
         <div className='grid'>
-            <Chart totalIncome={totalIncome} totalExpenses={totalExpenses} />
+            <Chart totalIncome={totalIncome} totalExpenses={(-1) * totalExpenses} />
             <div className="p-6 rounded-lg shadow-md space-y-2">
                 <div className="text-lg sm:text-xl text-my-purple">
                     <strong>Total Income:</strong> {totalIncome.toFixed(2)}$

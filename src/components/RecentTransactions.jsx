@@ -13,7 +13,7 @@ const RecentTransactions = () => {
         <div>
             {fiveRecentTransactions.map(transaction => (
                 <div key={transaction.id} className='grid md:grid-cols-6 py-2 items-center gap-2'>
-                    <Link to={`/transactions/${transaction.id}`} className='md:col-span-5 flex p-4 items-center justify-between gap-4 border bg-transparent hover:bg-light rounded-lg shadow-md'>
+                    <Link to={`/transactions/${transaction.id}`} className='md:col-span-5 flex p-4 items-center justify-between gap-4 border bg-transparent hover:border-primary rounded-lg shadow-md'>
                         <img src={dollarImage} alt="Dollar image" className='size-8 md:size-10' />
                         <div>
                             <div className='text-primary font-semibold'>{transaction.description}</div>
