@@ -33,12 +33,12 @@ const TransactionDetail = () => {
             <div>
                 <img src={renderTransactionDetailImage.image} alt="" />
             </div>
-            <div className='space-y-4'>
-                <h2 className="text-2xl text-primary font-bold">Transaction Type: {transactionDetail.type}</h2>
-                <h3 className='text-primary text-xl'><strong>Description:</strong> {transactionDetail.description}</h3>
-                <h3 className='text-primary text-xl'><strong>Amount:</strong> {transactionDetail.amount}$</h3>
-                <h3 className='text-primary text-xl'><strong>Category:</strong> {transactionDetail.category}</h3>
-                <h3 className='text-primary text-xl'><strong>Date:</strong> {transactionDetail.date}</h3>
+            <div className='space-y-4 text-center md:text-left'>
+                <h2 className="text-xl md:text-2xl text-primary font-bold capitalize mb-6 md:mb-10">Transaction Type: {transactionDetail.type}</h2>
+                <h3 className='text-primary text-lg md:text-xl'><strong>Description:</strong> {transactionDetail.description}</h3>
+                <h3 className='text-primary text-lg md:text-xl'><strong>Amount:</strong> {transactionDetail.amount}$</h3>
+                <h3 className='text-primary text-lg md:text-xl'><strong>Category:</strong> {transactionDetail.category}</h3>
+                <h3 className='text-primary text-lg md:text-xl'><strong>Date:</strong> {transactionDetail.date}</h3>
             </div>
         </div>
     )

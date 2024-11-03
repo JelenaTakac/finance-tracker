@@ -59,7 +59,7 @@ const TransactionForm = () => {
     return (
         <form onSubmit={handleSubmit} className="p-4 bg-white rounded-lg shadow-md md:w-1/2 mx-6 md:mx-auto mt-12">
             <div className="mb-4">
-                <label className="block text-gray-700 font-bold mb-2" htmlFor="amount">
+                <label className="block text-primary text-sm md:text-base font-bold mb-2" htmlFor="amount">
                     Amount
                 </label>
                 <input
@@ -81,9 +81,9 @@ const TransactionForm = () => {
             </div>
 
             <div className="mb-4">
-                <label className="block text-gray-700 font-bold mb-2">Type</label>
+                <label className="block text-primary text-sm md:text-base font-bold mb-2">Type</label>
                 <div className="flex items-center">
-                    <label className="mr-4">
+                    <label className="mr-4 text-sm md:text-base">
                         <input
                             type="radio"
                             name='type'
@@ -94,7 +94,7 @@ const TransactionForm = () => {
                         />
                         Income
                     </label>
-                    <label>
+                    <label className="text-sm md:text-base">
                         <input
                             type="radio"
                             name='type'
@@ -109,7 +109,7 @@ const TransactionForm = () => {
             </div>
 
             <div className="mb-4">
-                <label className="block text-gray-700 font-bold mb-2" htmlFor="category">
+                <label className="block text-primary text-sm md:text-base font-bold mb-2" htmlFor="category">
                     Category
                 </label>
                 <select
@@ -117,7 +117,7 @@ const TransactionForm = () => {
                     name='category'
                     value={transactionInfo.category}
                     onChange={handleInputChange}
-                    className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                    className="w-full text-sm md:text-base px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
                     required
                 >
                     <option value="" disabled>Select category</option>
@@ -130,7 +130,7 @@ const TransactionForm = () => {
             </div>
 
             <div className="mb-4">
-                <label className="block text-gray-700 font-bold mb-2" htmlFor="description">
+                <label className="block text-primary text-sm md:text-base font-bold mb-2" htmlFor="description">
                     Description
                 </label>
                 <input
@@ -145,7 +145,7 @@ const TransactionForm = () => {
             </div>
 
             <div className="mb-4">
-                <label className="block text-gray-700 font-bold mb-2" htmlFor="date">
+                <label className="block text-primary text-sm md:text-base font-bold mb-2" htmlFor="date">
                     Date
                 </label>
                 <input
@@ -154,14 +154,14 @@ const TransactionForm = () => {
                     name='date'
                     value={transactionInfo.date}
                     onChange={handleInputChange}
-                    className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                    className="w-full text-sm md:text-base px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
                     required
                 />
             </div>
 
             <button
                 type="submit"
-                className="w-full text-primary border border-primary hover:text-white hover:bg-primary py-2 px-4 rounded-lg hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50 transition-colors duration-300"
+                className="w-full text-primary text-sm md:text-base border border-primary hover:text-white hover:bg-primary py-2 px-4 rounded-lg hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50 transition-colors duration-300"
             >
                 {transactionId ? 'Update Transaction' : 'Add Transaction'}
             </button>
