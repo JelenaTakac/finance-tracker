@@ -37,11 +37,13 @@ A peronal finance tracking application built with React, Vite, and Tailwind CSS.
    cd finance-tracker
 
 2. **Install dependencies**:
+    ```bash
     npm install
     # or
     yarn install
 
 3. **Run the application**:
+    ```bash
     npm run dev
     # or
     yarn dev
@@ -57,6 +59,7 @@ A peronal finance tracking application built with React, Vite, and Tailwind CSS.
 
 ## Project Structure
 
+```plaintext
 src/
 ├── assets/             # Static assets like images
 ├── components/         # Reusable UI components
@@ -67,6 +70,7 @@ src/
 ├── views/              # Main views (e.g., Home, Transactions, TransactionDetail)
 ├── App.jsx             # Main application component
 └── main.jsx            # Entry point for the React app
+```
 
 ## Libraries Used
 
