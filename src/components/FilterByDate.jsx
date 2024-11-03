@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-const FilterByTimePeriod = ({ onHandleStartDate, onHandleEndDate }) => {
+const FilterByDate = ({ onHandleStartDate, onHandleEndDate }) => {
     const [startDate, setStartDate] = useState('');
     const [endDate, setEndDate] = useState('');
 
@@ -17,27 +17,27 @@ const FilterByTimePeriod = ({ onHandleStartDate, onHandleEndDate }) => {
     return (
         <div className="space-y-2 md:flex md:space-x-4 mb-4">
             <div className='flex items-center space-x-2'>
-                <label className="text-gray-700 font-bold" htmlFor="start-date">Start Date</label>
+                <label className="text-sm md:text-base text-primary" htmlFor="start-date">Start Date</label>
                 <input
                     type="date"
                     id="start-date"
                     value={startDate}
                     onChange={(e) => handleStartDate(e.target.value)}
-                    className="px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                    className="text-sm md:text-base p-2 md:px-3 md:py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
                 />
             </div>
             <div className='flex items-center space-x-2'>
-                <label className="text-gray-700 font-bold" htmlFor="end-date">End Date</label>
+                <label className="text-sm md:text-base text-primary" htmlFor="end-date">End Date</label>
                 <input
                     type="date"
                     id="end-date"
                     value={endDate}
                     onChange={(e) => handleEndDate(e.target.value)}
-                    className="px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                    className="text-sm md:text-base p-2 md:px-3 md:py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
                 />
             </div>
         </div>
     )
 }
 
-export default FilterByTimePeriod
+export default FilterByDate
